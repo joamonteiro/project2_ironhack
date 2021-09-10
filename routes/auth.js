@@ -2,14 +2,17 @@ const router = require("express").Router();
 const User = require("../models/User.model");
 const bcrypt = require("bcryptjs");
 
+//Singup Render
 router.get("/signup", (req, res) => {
   res.render("auth/signup");
 });
 
+//Login Render_______________________________________________________
 router.get("/login", (req, res) => {
   res.render("auth/login");
 });
 
+//Setting up sign up_______________________________________________________
 router.post("/signup", async (req, res) => {
   const { username, password } = req.body;
   //   const username = req.body.username;
@@ -36,6 +39,7 @@ router.post("/signup", async (req, res) => {
   res.redirect("/");
 });
 
+//Setting up login_______________________________________________________
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
@@ -58,6 +62,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
+//Setting up loggout
 router.post("/logout", (req, res) => {
   req.session.destroy();
   res.redirect("/");
