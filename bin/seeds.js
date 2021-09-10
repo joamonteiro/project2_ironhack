@@ -8,7 +8,7 @@ const spots = [
       type: "Cocktail bar",
       location: "Centro Comercial Martim Moniz 6 Esq, Praça Martim Moniz, 1100-341 Lisboa",
       //budget: Array,
-      image: String,
+      imageUrl: String,
       //user: ,
       description: [
           {
