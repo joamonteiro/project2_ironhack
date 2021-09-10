@@ -34,7 +34,16 @@ app.use(
   })
 );
 
+function getCurrentLoggedUser(req, res, next) {
+  if (req.session && req.session.currentUser) {
+    app.locals.loggedInUser = req.session.currentUser.username;
+  } else {
+    app.locals.loggedInUser = "";
+  }
+  next();
+}
 
+app.use(getCurrentLoggedUser);
 
 // default value for title local
 const projectName = "project2";
