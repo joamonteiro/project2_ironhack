@@ -8,7 +8,7 @@ const spotSchema = new Schema(
     location: String,
     budget: {
       type: String,
-      enum: ["Cheap", "Medium", "Expensive"],
+      enum: ["1", "2", "3"],
     },
     imageUrl: String,
     user: {
