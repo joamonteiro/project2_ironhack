@@ -10,7 +10,7 @@ const spotSchema = new Schema(
       type: String,
       enum: ["Cheap", "Medium", "Expensive"],
     },
-    image: String,
+    imageUrl: String,
     user: {
       type: Schema.Types.ObjectId,
       ref: "User",
