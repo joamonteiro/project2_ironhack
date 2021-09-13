@@ -4,7 +4,7 @@
   {{#each spots}}
     <li>
       <a href="/spots/{{id}}">{{name}}</a>
-      <form action="/spots/delete" method="POST">
+      <form action="/spots/{{id}}/delete" method="POST">
         <button type="submit">Delete</button>
       </form>
       <br />
