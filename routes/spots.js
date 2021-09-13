@@ -45,8 +45,6 @@ router.post("/create-spot", fileUpload.single("image"), async (req, res) => {
   res.redirect("/spots");
 });
 
-module.exports = router;
-
 //http://localhost:3000/books/123412345
 router.get("/spots/:spotId", async (req, res) => {
   const spot = await Spot.findById(req.params.spotId);
@@ -59,14 +57,14 @@ router.get("/spots/:spotId/edit", async (req, res) => {
   res.render("spots/spot-edit", {spot});
 });
 
-router.post("spots/:spotId/edit", async (req, res) => {
-  const {name, type, location, budget, description} = req.body;
+router.post("/spots/:spotId/edit", async (req, res) => {
+  const {name, location, description} = req.body;
   await Spot.findByIdAndUpdate(req.params.spotId, {
     name, 
-    type, 
     location, 
-    budget, 
     description,
   });
   res.redirect(`/spots/${req.params.spotId}`)
-})
+});
+
+module.exports = router;

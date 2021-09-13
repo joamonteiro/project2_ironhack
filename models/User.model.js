@@ -13,6 +13,7 @@ const userSchema = new Schema(
     image: String,
     description: String,
     funfact: String,
+    imageUrl: String,
   },
   //registration: 
     {
