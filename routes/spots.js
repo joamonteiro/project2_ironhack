@@ -32,32 +32,3 @@ router.get("/create-spot", requireLogin, async (req, res) => {
   });
 
 module.exports = router;
-
-/* const spotSchema = new Schema(
-    {
-      name: String,
-      type: String,
-      location: String,
-      budget: {
-        type: String,
-        enum: ["Cheap", "Medium", "Expensive"],
-      },
-      imageUrl: String,
-      user: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-      },
-      description: [
-        {
-          opening: String,
-          specialties: String,
-          review: String,
-        },
-      ],
-    },
-    //review:
-    {
-      timestamps: true,
-    }
-  );
-   */
