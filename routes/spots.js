@@ -25,10 +25,15 @@ router.get("/create-spot", requireLogin, async (req, res) => {
     res.render("spots/spot-create", { spots });
   });
   
-  router.post("/create-spot", async (req, res) => {
+router.post("/create-spot", async (req, res) => {
     const { name, type, location, budget, imageUrl /* user, description */ } = req.body;
     await Spot.create({ name, type, location, budget, imageUrl/* user, description */   });
     res.redirect("/spots");
   });
 
 module.exports = router;
+
+//http://localhost:3000/edit-spot
+
+
+//http://localhost:3000 (delete)
