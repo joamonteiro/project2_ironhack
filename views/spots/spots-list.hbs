@@ -3,7 +3,7 @@
 <ul>
   {{#each spots}}
     <li>
-      <a href="/spots">{{name}}</a>
+      <a href="/spots/{{id}}">{{name}}</a>
       <form action="/spots/delete" method="POST">
         <button type="submit">Delete</button>
       </form>
