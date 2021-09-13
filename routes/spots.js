@@ -57,13 +57,11 @@ router.get("/spots/:spotId/edit", async (req, res) => {
   res.render("spots/spot-edit", {spot});
 });
 
-router.post("spots/:spotId/edit", async (req, res) => {
-  const {name, type, location, budget, description} = req.body;
+router.post("/spots/:spotId/edit", async (req, res) => {
+  const {name, location, description} = req.body;
   await Spot.findByIdAndUpdate(req.params.spotId, {
     name, 
-    type, 
     location, 
-    budget, 
     description,
   });
   res.redirect(`/spots/${req.params.spotId}`)
