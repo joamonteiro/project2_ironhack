@@ -33,7 +33,11 @@ router.post("/create-spot", async (req, res) => {
 
 module.exports = router;
 
-//http://localhost:3000/edit-spot
+//http://localhost:3000/123459763
+router.get("/spots/:spotId", async(req, res) => {
+  const spot = await Spot.findById(req.params.spotId);
+  res.render("spots/spot-details", spot)
+})
 
 
 //http://localhost:3000 (delete)
