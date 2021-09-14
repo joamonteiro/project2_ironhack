@@ -15,6 +15,11 @@ const hbs = require("hbs");
 
 const app = express();
 
+//adding helpers feature to handlebars
+const helpers = require("handlebars-helpers");
+hbs.registerHelper(helpers());
+
+
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 

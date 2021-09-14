@@ -49,7 +49,11 @@ router.post("/create-spot", fileUpload.single("image"), async (req, res) => {
 //http://localhost:3000/books/123412345
 router.get("/spots/:spotId", async (req, res) => {
   const spot = await Spot.findById(req.params.spotId).populate("user");
-  res.render("spots/spot-details", spot);
+  console.log(req.session.currentUser)
+  res.render("spots/spot-details", {
+    spot,
+    ourUser: req.session.currentUser
+  });
 })
 
 //http://localhost:3000/spots/:spotId/edit
