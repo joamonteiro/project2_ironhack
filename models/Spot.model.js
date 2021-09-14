@@ -7,7 +7,7 @@ const spotSchema = new mongoose.Schema(
     name: String,
     type: {
       type: String,
-      enum: ["Bar", "Restaurant", "Rooftop", "Park", "Museum", "Viewpoint", "Monument"],
+      enum: ["Bar", "Restaurant", "Rooftop", "Park", "Cultural Place", "Museum", "Viewpoint", "Monument"],
     },
     location: String,
     budget: {
