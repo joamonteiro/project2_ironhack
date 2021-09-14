@@ -1,20 +1,20 @@
 <div class="container">
     <div class="row">
-        <h1>{{name}}</h1>
-        <h2>{{type}}</h2>
+        <h1>{{spot.name}}</h1>
+        <h2>{{spot.type}}</h2>
     </div>
     <div class="row">
-        <img src="{{imageUrl}}" alt="{{name}}"/>
+        <img src="{{spot.imageUrl}}" alt="{{spot.name}}"/>
     </div>
     <br/>
     <div class="row">
-        <h6>Description: {{description}}</h6>
-        <h6>Budget: {{budget}}</h6>
-        <h6>Where to find it: {{location}}</h6>
-        <h6>Recommended by: {{user.username}}</h6>
+        <h6>Description: {{spot.description}}</h6>
+        <h6>Budget: {{spot.budget}}</h6>
+        <h6>Where to find it: {{spot.location}}</h6>
+        <h6>Recommended by: {{spot.user.username}}</h6>
     </div>
     
-    
+    {{#is spot.user._id ourUser._id}}
     <div class="spot-forms">
         <form action="/spots/{{id}}/edit" method="get">
             <button type="submit">Edit Spot</button>
@@ -23,5 +23,6 @@
         <form action="" method="get">
             <button type="submit">Add to favorites</button>
         </form>
+    {{/is}}
     </div>
 </div>
