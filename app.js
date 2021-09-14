@@ -36,7 +36,7 @@ app.use(
 
 function getCurrentLoggedUser(req, res, next) {
   if (req.session && req.session.currentUser) {
-    app.locals.loggedInUser = req.session.currentUser.username;
+    app.locals.loggedInUser = req.session.currentUser; //req.session.currentUser.username;
   } else {
     app.locals.loggedInUser = "";
   }
@@ -58,6 +58,8 @@ const auth = require("./routes/auth");
 app.use("/", auth);
 const spots = require("./routes/spots");
 app.use("/", spots);
+const users = require("./routes/users");
+app.use("/", users);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

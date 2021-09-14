@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <img/>
+            <form action="/user/{{_id}}/edit" method="POST">
+            <h1>Complete your profile</h1>
+                <label>Username</label>
+                <input type="text" name="username" value="{{username}}"/>
+                <label>Bio</label>
+                <textarea rows="5" cols="20" name="description">{{description}}</textarea>
+                <label>Nationality</label>
+                <input type="text" name="nationality" value="{{nationality}}"/>
+                <label>Fun Fact</label>
+                <input type="text" name="funFact" value="{{funFact}}"/>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
