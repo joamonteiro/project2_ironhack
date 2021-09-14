@@ -47,7 +47,7 @@ router.post("/create-spot", fileUpload.single("image"), async (req, res) => {
 
 //http://localhost:3000/books/123412345
 router.get("/spots/:spotId", async (req, res) => {
-  const spot = await Spot.findById(req.params.spotId);
+  const spot = await Spot.findById(req.params.spotId).populate("user");
   res.render("spots/spot-details", spot);
 })
 
@@ -65,6 +65,11 @@ router.post("/spots/:spotId/edit", async (req, res) => {
     description,
   });
   res.redirect(`/spots/${req.params.spotId}`)
+});
+
+router.post("/spots/:spotId/delete", async (req, res) => {
+  await Spot.findByIdAndDelete(req.params.spotId);
+  res.redirect("/spots");
 });
 
 module.exports = router;

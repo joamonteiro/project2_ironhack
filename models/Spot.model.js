@@ -12,7 +12,7 @@ const spotSchema = new mongoose.Schema(
     location: String,
     budget: {
       type: String,
-      enum: ["1", "2", "3", "4"],
+      enum: ["Free (Public Space)", "Cheap (below 10€)", "Average", "Expensive (above 50€)"],
     },
     imageUrl: String,
     user: {
