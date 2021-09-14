@@ -7,7 +7,7 @@ const spotSchema = new mongoose.Schema(
     name: String,
     type: {
       type: String,
-      enum: ["1", "2", "3", "4", "5", "6", "7"],
+      enum: ["Bar", "Restaurant", "Rooftop", "Park", "Museum", "Viewpoint", "Monument"],
     },
     location: String,
     budget: {
@@ -19,18 +19,12 @@ const spotSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
     },
-    description: [
-      {
-        opening: String,
-        specialties: String,
-        review: String,
-      },
-    ],
+    description: String,
   },
-  //review:
+  /* review:
   {
     timestamps: true,
-  }
+  } */
 );
 
 const Spot = mongoose.model("Spot", spotSchema);

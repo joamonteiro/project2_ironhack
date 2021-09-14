@@ -30,7 +30,7 @@ router.post("/create-spot", fileUpload.single("image"), async (req, res) => {
   if (req.file) {
     fileUrlOnCloudinary = req.file.path;
   }
-  const { name, type, location, budget /* user, description */ } = req.body;
+  const { name, type, location, budget, description} = req.body;
 
   await Spot.create({
     user: req.session.currentUser,
@@ -39,6 +39,7 @@ router.post("/create-spot", fileUpload.single("image"), async (req, res) => {
     location,
     budget,
     imageUrl: fileUrlOnCloudinary,
+    description,
   });
 
   console.log(req.session.currentUser);

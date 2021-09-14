@@ -2,17 +2,26 @@
     <div class="row">
         <h1>{{name}}</h1>
         <h2>{{type}}</h2>
-
-        <h3>{{location}}</h3>
-        <h3>Budget: {{budget}}</h3>
     </div>
     <div class="row">
         <img src="{{imageUrl}}" alt="{{name}}"/>
     </div>
+    <br/>
     <div class="row">
-        <h4>{{username}}</h4>
-        <h4>{{createdAt}}</h4>
-        <p>{{description}}</p>
+        <h6>Description: {{description}}</h6>
+        <h6>Budget: {{budget}}</h6>
+        <h6>Where to find it: {{location}}</h6>
+        <h6>Recommended by: {{user.username}}</h6>
     </div>
-    <a href="/spots/{{id}}/edit">Edit book</a>
+    
+    
+    <div class="spot-forms">
+        <form action="/spots/{{id}}/edit" method="get">
+            <button type="submit">Edit Spot</button>
+        </form>
+        <br/>
+        <form action="" method="get">
+            <button type="submit">Add to favorites</button>
+        </form>
+    </div>
 </div>
