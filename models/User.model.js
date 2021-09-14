@@ -8,12 +8,20 @@ const userSchema = new Schema(
       unique: true,
     },
     password: String,
-    name: String,
     nationality: String,
-    image: String,
     description: String,
-    funfact: String,
-    imageUrl: String,
+    funFact: String,
+    imageUrl: {
+      type:String,
+      default:"https://picsum.photos/200",
+    }
+    ,
+    spots: [
+      {
+      type: Schema.Types.ObjectId,
+      ref: "Spot"
+      }
+    ],
   },
   //registration: 
     {
