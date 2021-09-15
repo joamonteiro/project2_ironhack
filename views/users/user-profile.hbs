@@ -9,7 +9,7 @@
                 <h3>{{user.funFact}}</h3>
                 <h5>{{user.nationality}}</h5>
                 {{#is user._id ourUser._id}}
-                    <a href="/user/{{id}}/edit">Edit</a>
+                    <a href="/user/{{user.id}}/edit">Edit</a>
                 {{/is}}
             </div>
             <p>{{user.description}}</p>
