@@ -12,7 +12,7 @@ const userSchema = new Schema(
     description: String,
     funFact: String,
     imageUrl: {
-      type:String,
+      type: String,
       default:"https://picsum.photos/200",
     }
     ,
@@ -20,6 +20,12 @@ const userSchema = new Schema(
       {
       type: Schema.Types.ObjectId,
       ref: "Spot"
+      }
+    ],
+    favorites: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Spot"
       }
     ],
   },

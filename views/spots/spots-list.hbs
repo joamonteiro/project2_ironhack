@@ -1,12 +1,9 @@
-<h1>Spot list</h1>
-<h2>Check out our "clássicos" in Lisbon!</h2>
+<h1>Spot-A-Spot List</h1>
+<h2>Must-See Spots in Lisbon!</h2>
 <ul>
   {{#each spots}}
     <li>
       <a href="/spots/{{id}}">{{name}}</a>
-      <form action="/spots/{{id}}/delete" method="POST">
-        <button type="submit">Delete</button>
-      </form>
       <br />
     </li>
   {{/each}}

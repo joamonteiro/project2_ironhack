@@ -16,13 +16,19 @@
     
     {{#is spot.user._id ourUser._id}}
     <div class="spot-forms">
-        <form action="/spots/{{id}}/edit" method="get">
+        <form action="/spots/{{id}}/edit" method="GET">
             <button type="submit">Edit Spot</button>
         </form>
         <br/>
-        <form action="" method="get">
-            <button type="submit">Add to favorites</button>
-        </form>
+        <form action="/spots/{{id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+       
     {{/is}}
+    {{#if loggedInUser}}
+     <form action="/favorite-spots/{{spot.id}}" method="POST">
+        <button type="submit">Add to favorites</button>
+    </form>
+    {{/if}}
     </div>
 </div>

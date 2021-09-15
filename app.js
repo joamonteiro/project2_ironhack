@@ -19,7 +19,6 @@ const app = express();
 const helpers = require("handlebars-helpers");
 hbs.registerHelper(helpers());
 
-
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 
@@ -33,7 +32,7 @@ app.use(
     cookie: {
       sameSite: true, //both fe and be are running on the same hostname
       httpOnly: true, //we are not using https
-     /*  maxAge: 60000, //session time */
+      maxAge: 60000000, //session time */
     },
     rolling: true,
   })
@@ -52,7 +51,8 @@ app.use(getCurrentLoggedUser);
 
 // default value for title local
 const projectName = "project2";
-const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
+const capitalized = (string) =>
+  string[0].toUpperCase() + string.slice(1).toLowerCase();
 
 app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 

@@ -20,6 +20,21 @@ router.get("/spots", async (req, res) => {
   res.render("spots/spots-list", { spots });
 });
 
+//http://localhost:3000/favorite-spots
+router.get("/favorite-spots", requireLogin, async (req, res) => {
+  const user = await User.findById(req.session.currentUser._id).populate("favorites");
+  res.render("spots/spots-favorites", user);
+});
+
+router.post("/favorite-spots/:spotId", async (req, res) => {
+  const spot = await Spot.findById(req.params.spotId);
+  await User.findByIdAndUpdate(req.session.currentUser._id, {
+    $push: { favorites: spot },
+  });
+
+  res.redirect("/favorite-spots");
+});
+
 //http://localhost:3000/create-spot
 router.get("/create-spot", requireLogin, async (req, res) => {
   res.render("spots/spot-create");
@@ -30,7 +45,7 @@ router.post("/create-spot", fileUpload.single("image"), async (req, res) => {
   if (req.file) {
     fileUrlOnCloudinary = req.file.path;
   }
-  const { name, type, location, budget, description} = req.body;
+  const { name, type, location, budget, description } = req.body;
 
   await Spot.create({
     user: req.session.currentUser,
@@ -49,27 +64,27 @@ router.post("/create-spot", fileUpload.single("image"), async (req, res) => {
 //http://localhost:3000/books/123412345
 router.get("/spots/:spotId", async (req, res) => {
   const spot = await Spot.findById(req.params.spotId).populate("user");
-  console.log(req.session.currentUser)
+  console.log(req.session.currentUser);
   res.render("spots/spot-details", {
     spot,
-    ourUser: req.session.currentUser
+    ourUser: req.session.currentUser,
   });
-})
+});
 
 //http://localhost:3000/spots/:spotId/edit
 router.get("/spots/:spotId/edit", async (req, res) => {
   const spot = await Spot.findById(req.params.spotId);
-  res.render("spots/spot-edit", {spot});
+  res.render("spots/spot-edit", { spot });
 });
 
 router.post("/spots/:spotId/edit", async (req, res) => {
-  const {name, location, description} = req.body;
+  const { name, location, description } = req.body;
   await Spot.findByIdAndUpdate(req.params.spotId, {
-    name, 
-    location, 
+    name,
+    location,
     description,
   });
-  res.redirect(`/spots/${req.params.spotId}`)
+  res.redirect(`/spots/${req.params.spotId}`);
 });
 
 router.post("/spots/:spotId/delete", async (req, res) => {

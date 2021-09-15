@@ -23,20 +23,19 @@
                   <li class="nav-item">
                      <a class="nav-link " href="#"></a>
                   </li>
-                  
+                  {{#if loggedInUser}}
                   <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Spots
                      </a>
                      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="/spots">All Spots</a></li>
-                        <li><a class="dropdown-item" href="#">Bars</a></li>
-                        <li><a class="dropdown-item" href="#">Restaurants</a></li>
-                        <li><a class="dropdown-item" href="#">Viewpoints</a></li>
                         <li><a class="dropdown-item" href="/create-spot">Create A Spot</a></li>
                      </ul>
                   </li>
-                  
+                  {{else}}
+                  <a id="public-spot-access" href="/spots">All Spots</a>
+                  {{/if}}
                   <li class="nav-item">
                      <a class="nav-link" href="#">I'm feeling lucky</a>
                   </li>
@@ -47,8 +46,9 @@
                         Welcome <strong>{{loggedInUser.username}}</strong>
                      </a>
                      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="/user/{{loggedInUser._id}}">my profile</a></li>
-                        <li><a class="dropdown-item" href="#">search profiles</a></li>
+                        <li><a class="dropdown-item" href="/user/{{loggedInUser._id}}">My profile</a></li>
+                        <li><a class="dropdown-item" href="favorite-spots">My Favorites</a></li>
+                        <li><a class="dropdown-item" href="#">Search profiles</a></li>
                         <li>
                         </li>
                         {{!-- <a class="dropdown-item" href="#">Logout</a> --}}
