@@ -32,7 +32,7 @@ router.post("/create-spot", fileUpload.single("image"), async (req, res) => {
   }
   const { name, type, location, budget, description} = req.body;
 
-  await Spot.create({
+  const createdSpot = await Spot.create({
     user: req.session.currentUser,
     name,
     type,
@@ -42,7 +42,12 @@ router.post("/create-spot", fileUpload.single("image"), async (req, res) => {
     description,
   });
 
-  console.log(req.session.currentUser);
+  await User.findByIdAndUpdate(req.session.currentUser._id, {
+    $push: {
+      spots: createdSpot
+    }
+  });
+
   res.redirect("/spots");
 });
 

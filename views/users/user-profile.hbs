@@ -1,16 +1,32 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <img src="{{imageUrl}}"/>
+            <img src="{{user.imageUrl}}"/>
         </div>
         <div class="col-md-9">
             <div>
-                <h1>{{username}}</h1>
-                <h3>{{funFact}}</h3>
-                <h5>{{nationality}}</h5>
-                <a href="/user/{{id}}/edit">Edit</a>
+                <h1>{{user.username}}</h1>
+                <h3>{{user.funFact}}</h3>
+                <h5>{{user.nationality}}</h5>
+                {{#is user._id ourUser._id}}
+                    <a href="/user/{{id}}/edit">Edit</a>
+                {{/is}}
             </div>
-            <p>{{description}}</p>
+            <p>{{user.description}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            {{#each user.spots}}
+                <div>
+                    <img src="{{imageUrl}}"/>
+                    <h3>{{name}}</h3>
+                    <h5>{{type}}</h5>
+                    <p>{{location}}</p>
+                    <p>{{budget}}</p>
+                    <p>{{description}}</p>
+                </div>
+            {{/each}}
         </div>
     </div>
 </div>
