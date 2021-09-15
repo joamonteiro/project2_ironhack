@@ -97,4 +97,6 @@ router.post("/spots/:spotId/delete", async (req, res) => {
   res.redirect("/spots");
 });
 
+
+
 module.exports = router;

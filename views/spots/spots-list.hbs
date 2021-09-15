@@ -1,10 +1,28 @@
 <h1>Spot-A-Spot List</h1>
 <h2>Must-See Spots in Lisbon!</h2>
 <ul>
+  {{!-- <form action="">
+    <input type="checkbox" id="restaurant" name="restaurant" value="Restaurant">
+    <label for="restaurant"> Restaurant</label>
+    <input type="checkbox" id="bar" name="bar" value="Bar">
+    <label for="bar"> Bar</label>
+    <input type="checkbox" id="park" name="park" value="Park">
+    <label for="park"> Park</label>
+    <input type="checkbox" id="rooftop" name="rooftop" value="Rooftop">
+    <label for="rooftop"> Rooftop</label>
+    <input type="checkbox" id="viewpoint" name="viewpoint" value="Viewpoint">
+    <label for="viewpoint"> Viewpoint</label>
+    <input type="checkbox" id="monument" name="monument" value="Monument">
+    <label for="monument"> Monument</label>
+    <input type="checkbox" id="museum" name="museum" value="Museum">
+    <label for="museum"> Museum</label>
+    <input type="checkbox" id="cultural" name="cultural" value="Cultural">
+    <label for="cultural"> Cultural</label>
+  </form> --}}
   {{#each spots}}
     <li>
       <a href="/spots/{{id}}">{{name}}</a>
-      <br />
+      <br/>
     </li>
   {{/each}}
 </ul>

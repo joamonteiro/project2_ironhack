@@ -26,7 +26,21 @@
                     <p>{{budget}}</p>
                     <p>{{description}}</p>
                 </div>
+                 <form action="/spots/{{id}}/delete" method="POST">
+                <button type="submit">Delete</button>
+                </form>
+             <form action="/spots/{{id}}/edit" method="GET">
+                    <button type="submit">Edit Spot</button>
+                </form>
+
             {{/each}}
+            {{!-- {{#is user._id ourUser._id}}
+                <form action="/spots/{{spots.id}}/edit" method="GET">
+                    <button type="submit">Edit Spot</button>
+                </form>
+                <br/>
+           
+    {{/is}} --}}
         </div>
     </div>
 </div>
