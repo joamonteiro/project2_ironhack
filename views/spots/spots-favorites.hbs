@@ -4,6 +4,8 @@
   {{#each favorites}}
     <li>
       <a href="/spots/{{id}}">{{name}}</a>
+      <form action="/favorite-spots/{{id}}/delete" method="POST">
+        <button type="submit">Delete</button>
       <br/>
     </li>
   {{/each}}

@@ -20,9 +20,33 @@ router.get("/spots", async (req, res) => {
   res.render("spots/spots-list", { spots });
 });
 
+//http://localhost:3000/spots/bar
+router.get("/spots/bars", async (req, res) => {
+  let bars = [];
+  bars = await Spot.find({ type: "Bars" });
+  res.render("spots/spots-bars", { bars });
+});
+
+//http://localhost:3000/spots/restaurants
+router.get("/spots/restaurants", async (req, res) => {
+  let restaurants = [];
+  restaurants = await Spot.find({ type: "Restaurant" });
+  console.log(restaurants);
+  res.render("spots/spots-restaurants", { restaurants });
+});
+
+//http://localhost:3000/spots/rooftops
+router.get("/spots/rooftops", async (req, res) => {
+  let rooftops = [];
+  rooftops = await Spot.find({ type: "Rooftop" });
+  res.render("spots/spots-restaurants", { restaurants });
+});
+
 //http://localhost:3000/favorite-spots
 router.get("/favorite-spots", requireLogin, async (req, res) => {
-  const user = await User.findById(req.session.currentUser._id).populate("favorites");
+  const user = await User.findById(req.session.currentUser._id).populate(
+    "favorites"
+  );
   res.render("spots/spots-favorites", user);
 });
 
@@ -32,6 +56,16 @@ router.post("/favorite-spots/:spotId", async (req, res) => {
     $push: { favorites: spot },
   });
 
+  res.redirect("/favorite-spots");
+});
+
+router.post("/favorite-spots/:spotId/delete", async (req, res) => {
+  console.log("spotid", req.params.spotId);
+  await User.findByIdAndUpdate(req.session.currentUser._id, {
+    $pull: {
+      favorites: { id: req.params.spotId },
+    },
+  });
   res.redirect("/favorite-spots");
 });
 
@@ -59,8 +93,8 @@ router.post("/create-spot", fileUpload.single("image"), async (req, res) => {
 
   await User.findByIdAndUpdate(req.session.currentUser._id, {
     $push: {
-      spots: createdSpot
-    }
+      spots: createdSpot,
+    },
   });
 
   res.redirect("/spots");

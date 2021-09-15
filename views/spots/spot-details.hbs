@@ -16,11 +16,11 @@
     
     {{#is spot.user._id ourUser._id}}
     <div class="spot-forms">
-        <form action="/spots/{{id}}/edit" method="GET">
+        <form action="/spots/{{spot.id}}/edit" method="GET">
             <button type="submit">Edit Spot</button>
         </form>
         <br/>
-        <form action="/spots/{{id}}/delete" method="POST">
+        <form action="/spots/{{spot.id}}/delete" method="POST">
         <button type="submit">Delete</button>
       </form>
        
