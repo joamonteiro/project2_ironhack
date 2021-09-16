@@ -1,46 +1,60 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-3">
+    <div class="row usr-info">
+        <div class="col-md-3 usr-img">
             <img src="{{user.imageUrl}}"/>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8">
             <div>
                 <h1>{{user.username}}</h1>
-                <h3>{{user.funFact}}</h3>
-                <h5>{{user.nationality}}</h5>
-                {{#is user._id ourUser._id}}
-                    <a href="/user/{{user.id}}/edit">Edit</a>
-                {{/is}}
+                <h4>{{user.funFact}}</h4>
+                <p>Nationality: {{user.nationality}}</p>
+                <p>Bio: {{description}}</p>
             </div>
-            <p>{{user.description}}</p>
+             {{#is user._id ourUser._id}}
+                    <a class="new-spot-button" href="/user/{{user.id}}/edit">Edit Profile</a>
+             {{/is}}
         </div>
     </div>
     <div class="row">
-        <div class="col-md-9">
-            {{#each user.spots}}
-                <div>
-                    <img src="{{imageUrl}}"/>
-                    <h3>{{name}}</h3>
-                    <h5>{{type}}</h5>
-                    <p>{{location}}</p>
-                    <p>{{budget}}</p>
-                    <p>{{description}}</p>
-                </div>
-                 <form action="/spots/{{id}}/delete" method="POST">
-                <button type="submit">Delete</button>
-                </form>
-             <form action="/spots/{{id}}/edit" method="GET">
-                    <button type="submit">Edit Spot</button>
-                </form>
-
-            {{/each}}
+        <div class="col-md-12">
+            <h3 class="user-spots-h">My Spots</h3>
+            <ul class="cont-spot-items">
+                {{#each user.spots}}
+                    <li class="spot-item bg">
+                {{#is user._id ourUser._id}} {{! not working }}
+                    <div class="spot-i-fav">
+                    <form action="/favorite-spots/{{spot.id}}" method="POST">
+                        <button type="submit">Add to favourites</button>
+                    </form>
+                    </div>
+                {{/is}}
+                    <a href="/spots/{{id}}">
+                        <img src="{{imageUrl}}" width="200vw">
+                    </a>
+                    <h5 class="spot-item-inf">{{type}}</h5>
+                    <div class="spot-item-inf">
+                        <a href="/spots/{{id}}">{{name}}</a>
+                        <br>
+                        <p><i class="fas fa-map-marker-alt"></i>{{location}}</p>
+                    </div>
+                    <div class="flex">
+                        <form action="/spots/{{id}}/delete" method="POST">
+                        <button class="spot-item-bt" type="submit">Delete</button>
+                        </form>
+                        <form action="/spots/{{id}}/edit" method="GET">
+                        <button class="spot-item-bt" type="submit">Edit Spot</button>
+                        </form>
+                    </div>
+                    </li>
+                {{/each}}
+            </ul>
             {{!-- {{#is user._id ourUser._id}}
-                <form action="/spots/{{spots.id}}/edit" method="GET">
-                    <button type="submit">Edit Spot</button>
-                </form>
-                <br/>
-           
-    {{/is}} --}}
+                    <form action="/spots/{{spots.id}}/edit" method="GET">
+                        <button type="submit">Edit Spot</button>
+                    </form>
+                    <br/>
+            
+                    {{/is}} --}}
         </div>
     </div>
 </div>

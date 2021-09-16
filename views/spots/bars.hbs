@@ -1,9 +1,32 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            {{#each bars}}
-            <h1>{{name}}</h1>
-            {{/each}}
+             <p class="spt-nav">
+                <a class="spot-nav act" href="/spots">/spots</a>
+                <a class="spot-nav act" href="/spots/bars">/bars</a>
+                <a class="spot-nav" href="/spots/restaurants">/restaurants</a>
+                <a class="spot-nav" href="/spots/rooftops">/rooftops</a>
+                <a class="spot-nav" href="/spots/parks">/parks</a>
+                <a class="spot-nav" href="/spots/art-centers">/art-centers</a>
+                <a class="spot-nav" href="/spots/museums">/museums</a>
+                <a class="spot-nav" href="/spots/viewpoints">/viewpoints</a>
+                <a class="spot-nav" href="/spots/monuments">/monuments</a>
+            </p>
+            <ul class="cont-spot-items">
+                {{#each bars}}
+                <li class="spot-item bg">
+                    <a href="/spots/{{id}}"/>
+                        <img src="{{imageUrl}}" width="200vw"/>
+                    </a>
+                      <h5 class="spot-item-inf">{{type}}</h5>
+                    <div class="spot-item-inf">
+                        <a href="/spots/{{id}}">{{name}}</a>
+                        <br>
+                        <p><i class="fas fa-map-marker-alt"></i>{{location}}</p>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
         </div>
     </div>
 </div>

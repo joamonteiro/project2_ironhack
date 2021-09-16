@@ -1,28 +1,40 @@
-<h1>Spot-A-Spot List</h1>
-<h2>Must-See Spots in Lisbon!</h2>
-<ul>
-  {{!-- <form action="">
-    <input type="checkbox" id="restaurant" name="restaurant" value="Restaurant">
-    <label for="restaurant"> Restaurant</label>
-    <input type="checkbox" id="bar" name="bar" value="Bar">
-    <label for="bar"> Bar</label>
-    <input type="checkbox" id="park" name="park" value="Park">
-    <label for="park"> Park</label>
-    <input type="checkbox" id="rooftop" name="rooftop" value="Rooftop">
-    <label for="rooftop"> Rooftop</label>
-    <input type="checkbox" id="viewpoint" name="viewpoint" value="Viewpoint">
-    <label for="viewpoint"> Viewpoint</label>
-    <input type="checkbox" id="monument" name="monument" value="Monument">
-    <label for="monument"> Monument</label>
-    <input type="checkbox" id="museum" name="museum" value="Museum">
-    <label for="museum"> Museum</label>
-    <input type="checkbox" id="cultural" name="cultural" value="Cultural">
-    <label for="cultural"> Cultural</label>
-  </form> --}}
-  {{#each spots}}
-    <li>
-      <a href="/spots/{{id}}">{{name}}</a>
-      <br/>
-    </li>
-  {{/each}}
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p class="spt-nav">
+        <a class="spot-nav act" href="/spots">/spots</a>
+        <a class="spot-nav" href="/spots/bars">/bars</a>
+        <a class="spot-nav" href="/spots/restaurants">/restaurants</a>
+        <a class="spot-nav" href="/spots/rooftops">/rooftops</a>
+        <a class="spot-nav" href="/spots/parks">/parks</a>
+        <a class="spot-nav" href="/spots/art-centers">/art-centers</a>
+        <a class="spot-nav" href="/spots/museums">/museums</a>
+        <a class="spot-nav" href="/spots/viewpoints">/viewpoints</a>
+        <a class="spot-nav" href="/spots/monuments">/monuments</a>
+      </p>
+      <ul class="cont-spot-items">
+        {{#each spots}}
+          <li class="spot-item bg">
+            {{#if loggedInUser}} {{! not working }}
+            <div class="spot-i-fav">
+              <form action="/favorite-spots/{{spot.id}}" method="POST">
+                <button type="submit">Add to favourites</button>
+              </form>
+            </div>
+            {{/if}}
+            <a href="/spots/{{id}}">
+              <img src="{{imageUrl}}" width="200vw">
+            </a>
+              <h5 class="spot-item-inf">{{type}}</h5>
+            <div class="spot-item-inf">
+              <a href="/spots/{{id}}">{{name}}</a>
+              <br>
+              <p><i class="fas fa-map-marker-alt"></i>{{location}}</p>
+            </div>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+</div>

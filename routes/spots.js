@@ -72,11 +72,11 @@ router.get("/spots/viewpoints", async (req, res) => {
   res.render("spots/viewpoints", { viewpoints });
 });
 
-//http://localhost:3000/spots/monumentums
-router.get("/spots/monumentums", async (req, res) => {
-  let monumentums = [];
-  monumentums = await Spot.find({ type: "Monument" });
-  res.render("spots/monumentums", { monumentums });
+//http://localhost:3000/spots/monuments
+router.get("/spots/monuments", async (req, res) => {
+  let monuments = [];
+  monuments = await Spot.find({ type: "Monument" });
+  res.render("spots/monuments", { monuments });
 });
 
 //_____________________________________________________________________________________________

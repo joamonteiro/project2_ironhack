@@ -9,73 +9,114 @@
       <link rel="stylesheet" href="/stylesheets/style.css" />
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>  
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,800;1,300&display=swap" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/2a2c57bd5d.js" crossorigin="anonymous"></script>
    </head>
 
    <body>
          <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-               <a class="navbar-brand" href="/">Spot A Spot</a>
+               <a class="navbar-brand logo" href="/">spot a spot</a>
                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                </button>
                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                  <ul class="navbar-nav">
-                  <li class="nav-item">
-                     <a class="nav-link " href="#"></a>
-                  </li>
-                  {{#if loggedInUser}}
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Spots
-                     </a>
-                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="/create-spot">Create A Spot</a></li>
-                        <li><a class="dropdown-item" href="/spots">All Spots</a></li>
-                        <li><a class="dropdown-item" href="/spots/bars">Bars</a></li>
-                        <li><a class="dropdown-item" href="/spots/restaurants">Restaurants</a></li>
-                        <li><a class="dropdown-item" href="/spots/rooftops">Rooftops</a></li>
-                        <li><a class="dropdown-item" href="/spots/parks">Parks</a></li>
-                        <li><a class="dropdown-item" href="/spots/art-centers">Art Centers</a></li>
-                        <li><a class="dropdown-item" href="/spots/museums">Museums</a></li>
-                        <li><a class="dropdown-item" href="/spots/viewpoints">Viewpoints</a></li>
-                        <li><a class="dropdown-item" href="/spots/monuments">Monuments</a></li>
-                     </ul>
-                  </li>
-                  {{else}}
-                  <a id="public-spot-access" href="/spots">All Spots</a>
-                  {{/if}}
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">I'm feeling lucky</a>
-                  </li>
-                  {{#if loggedInUser}}
-                  
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Welcome <strong>{{loggedInUser.username}}</strong>
-                     </a>
-                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="/user/{{loggedInUser._id}}">My Profile</a></li>
-                        <li><a class="dropdown-item" href="/favorite-spots">My Favorites</a></li>
-                        <li><a class="dropdown-item" href="/users-list">Users List</a></li>
-                        <li>
-                        </li>
-                        {{!-- <a class="dropdown-item" href="#">Logout</a> --}}
-                        <form action="/logout" method="POST">
-                           <button type="submit">Logout</button>
-                        </form>
-                     </ul>
-                  </li>
-                  {{else}}
-                  <li class="nav-item">
-                     <a class="nav-link" href="/login">Login</a>
-                  </li>
-                  {{/if}}
+                  <ul class="navbar-nav cont-nav">
+                     <div class="align-nav-cont">
+                     <li class="nav-item">
+                        <a class="nav-link " href="#"></a>
+                     </li>
+                     {{#if loggedInUser}}
+                     <li class="nav-item dropdown items-nav">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                           Spots
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                           <li><a class="dropdown-item" href="/create-spot">Create A Spot</a></li>
+                           <li><a class="dropdown-item" href="/spots">All Spots</a></li>
+                           <li><a class="dropdown-item" href="/spots/bars">Bars</a></li>
+                           <li><a class="dropdown-item" href="/spots/restaurants">Restaurants</a></li>
+                           <li><a class="dropdown-item" href="/spots/rooftops">Rooftops</a></li>
+                           <li><a class="dropdown-item" href="/spots/parks">Parks</a></li>
+                           <li><a class="dropdown-item" href="/spots/art-centers">Art Centers</a></li>
+                           <li><a class="dropdown-item" href="/spots/museums">Museums</a></li>
+                           <li><a class="dropdown-item" href="/spots/viewpoints">Viewpoints</a></li>
+                           <li><a class="dropdown-item" href="/spots/monuments">Monuments</a></li>
+                        </ul>
+                     </li>
+                     {{else}}
+                     <li class="nav-item">
+                        <a class="nav-link" id="public-spot-access" href="/spots">All Spots</a>
+                     </li>
+                     {{/if}}
+                     <li class="nav-item items-nav">
+                        <a class="nav-link" href="#">I'm feeling lucky</a>
+                     </li>
+                     </div>
+                     {{#if loggedInUser}}
+                     
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                           Welcome <strong>{{loggedInUser.username}}</strong>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                           <li><a class="dropdown-item" href="/user/{{loggedInUser._id}}">My Profile</a></li>
+                           <li><a class="dropdown-item" href="/favorite-spots">My Favorites</a></li>
+                           <li><a class="dropdown-item" href="/users-list">Users List</a></li>
+                           <li>
+                           </li>
+                           {{!-- <a class="dropdown-item" href="#">Logout</a> --}}
+                           <form action="/logout" method="POST">
+                              <button type="submit" class="logout">Logout</button>
+                           </form>
+                        </ul>
+                     </li>
+                     {{else}}
+                     <li class="nav-item">
+                        <a class="nav-link login" href="/login">Login</a>
+                     </li>
+                     {{/if}}
                   </ul>
                </div>
             </div>
          </nav>
          {{{body}}}
-
+         <footer>
+            <ul class="col-md-7">
+               <li>
+                  <a class="spot-nav" href="/spots">/spots</a>
+               </li>
+               <li>
+                  <a class="spot-nav" href="/spots/bars">/bars</a>
+               </li>
+               <li>
+                  <a class="spot-nav" href="/spots/restaurants">/restaurants</a>
+               </li>
+               <li>
+                  <a class="spot-nav" href="/spots/rooftops">/rooftops</a>
+               </li>
+               <li>
+                  <a class="spot-nav" href="/spots/parks">/parks</a>
+               </li>
+               <li>
+                  <a class="spot-nav" href="/spots/art-centers">/art-centers</a>
+               </li>
+               <li>
+                  <a class="spot-nav" href="/spots/museums">/museums</a>
+               </li>
+               <li>
+                  <a class="spot-nav" href="/spots/viewpoints">/viewpoints</a>
+               </li>
+               <li>
+                  <a class="spot-nav" href="/spots/monuments">/monuments</a>
+               </li>
+            </ul>
+            <div class="col-md-5">
+               <p>Developed by <a href="#">@JoãoMonteiro</a> && <a href="#">@KélianSomon</a></p>
+            </div>
+         </footer>
          <script src="/js/script.js"></script>
    </body>
 

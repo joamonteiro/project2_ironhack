@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="row">
+<div class="container bg">
+    <div class="row details-h">
         <h1>{{spot.name}}</h1>
         <h2>{{spot.type}}</h2>
     </div>
@@ -7,11 +7,11 @@
         <img src="{{spot.imageUrl}}" alt="{{spot.name}}"/>
     </div>
     <br/>
-    <div class="row">
-        <h6>Description: {{spot.description}}</h6>
-        <h6>Budget: {{spot.budget}}</h6>
-        <h6>Where to find it: {{spot.location}}</h6>
-        <h6>Recommended by: {{spot.user.username}}</h6>
+    <div class="row details-c">
+        <h6>Recommended by: <strong>{{spot.user.username}}</strong></h6>
+        <h6><i class="fas fa-map-marker-alt"></i> {{spot.location}}</h6>
+        <h6><i class="fas fa-coins"></i> {{spot.budget}}</h6>
+        <h6><span>Review:</span><br> {{spot.description}}</h6>
     </div>
     
     {{#is spot.user._id ourUser._id}}
@@ -25,7 +25,7 @@
       </form>
     {{/is}}
     {{#if loggedInUser}}
-     <form action="/favorite-spots/{{spot.id}}" method="POST">
+    <form action="/favorite-spots/{{spot.id}}" method="POST">
         <button type="submit">Add to favorites</button>
     </form>
     {{/if}}

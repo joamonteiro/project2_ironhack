@@ -1,53 +1,63 @@
-<h1>Create A New Spot</h1>
-<form action="/create-spot" method="POST" enctype="multipart/form-data">
- 
- 
-  <label>Name</label>
-  <input type="text" name="name" />
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 flex">
+      <div class="new-spot">
+        <h1>Create A New Spot</h1>
+        <form action="/create-spot" method="POST" enctype="multipart/form-data">
+        
+          <label>Name</label>
+          <input type="text" name="name" />
 
-  <label>Type</label>
-  <select name="type" required>
-    <option value="0">Select type</option>
-    <option value="Bar">Bar</option>
-    <option value="Restaurant">Restaurant</option>
-    <option value="Rooftop">Rooftop</option>
-    <option value="Park">Park</option>
-    <option value="Cultural Place">Cultural Place</option>
-    <option value="Museum">Museum</option>
-    <option value="Viewpoint">Viewpoint</option>
-    <option value="Monument">Monument</option>
-  </select>
-  {{!--  --}}
-  <select name="type">
-    <option value="0">Secondary type</option>
-    <option value="Bar">Bar</option>
-    <option value="Restaurant">Restaurant</option>
-    <option value="Rooftop">Rooftop</option>
-    <option value="Park">Park</option>
-    <option value="Cultural Place">Cultural Place</option>
-    <option value="Museum">Museum</option>
-    <option value="Viewpoint">Viewpoint</option>
-    <option value="Monument">Monument</option>
-  </select>
-  {{!--  --}}
+          <label>Location</label>
+          <input type="text" name="location" />
 
-  <label>Location</label>
-  <input type="text" name="location" />
+          <label>Budget</label>
+          <select name="budget">
+            <option value="0">Select budget</option>
+            <option value="Free (Public Space)">Free (Public Space) </option>
+            <option value="Cheap (below 10€)">Cheap (below 10€) </option>
+            <option value="Average">Average </option>
+            <option value="Expensive (above 50€)">Expensive (above 50€) </option>
+          </select>
+          <br>
 
-  <label>Budget</label>
-  <select name="budget">
-    <option value="0">Select budget</option>
-    <option value="Free (Public Space)">Free (Public Space) </option>
-    <option value="Cheap (below 10€)">Cheap (below 10€) </option>
-    <option value="Average">Average </option>
-    <option value="Expensive (above 50€)">Expensive (above 50€) </option>
-  </select>
+          <label>Image</label>
+          <input class="img" type="file" name="image" />
 
-  <label>Image</label>
-  <input type="file" name="image" />
+          <label>Type</label>
+          <select name="type" required>
+            <option value="0">Select type</option>
+            <option value="Bar">Bar</option>
+            <option value="Restaurant">Restaurant</option>
+            <option value="Rooftop">Rooftop</option>
+            <option value="Park">Park</option>
+            <option value="Cultural Place">Cultural Place</option>
+            <option value="Museum">Museum</option>
+            <option value="Viewpoint">Viewpoint</option>
+            <option value="Monument">Monument</option>
+          </select>
 
-  <label>Description</label>
-  <textarea rows="5" cols="20" name="description"></textarea>
+          <select name="type">
+            <option value="0">Secondary type</option>
+            <option value="Bar">Bar</option>
+            <option value="Restaurant">Restaurant</option>
+            <option value="Rooftop">Rooftop</option>
+            <option value="Park">Park</option>
+            <option value="Cultural Place">Cultural Place</option>
+            <option value="Museum">Museum</option>
+            <option value="Viewpoint">Viewpoint</option>
+            <option value="Monument">Monument</option>
+          </select>
 
-  <button type="submit">Create</button>
-</form>
+          <br>
+
+          <div class="flex-column">
+            <label>Description</label>
+            <textarea rows="10" cols="20" name="description"></textarea>
+          </div>
+        </div>
+        <button class="new-spot-button" type="submit"><strong>+</strong> Create</button>
+      </form>
+    </div>
+  </div>
+</div>
