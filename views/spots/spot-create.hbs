@@ -6,7 +6,7 @@
   <input type="text" name="name" />
 
   <label>Type</label>
-  <select name="type">
+  <select name="type" required>
     <option value="0">Select type</option>
     <option value="Bar">Bar</option>
     <option value="Restaurant">Restaurant</option>
@@ -17,6 +17,19 @@
     <option value="Viewpoint">Viewpoint</option>
     <option value="Monument">Monument</option>
   </select>
+  {{!--  --}}
+  <select name="type">
+    <option value="0">Secondary type</option>
+    <option value="Bar">Bar</option>
+    <option value="Restaurant">Restaurant</option>
+    <option value="Rooftop">Rooftop</option>
+    <option value="Park">Park</option>
+    <option value="Cultural Place">Cultural Place</option>
+    <option value="Museum">Museum</option>
+    <option value="Viewpoint">Viewpoint</option>
+    <option value="Monument">Monument</option>
+  </select>
+  {{!--  --}}
 
   <label>Location</label>
   <input type="text" name="location" />

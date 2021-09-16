@@ -5,10 +5,12 @@ const mongoose = require("mongoose");
 const spotSchema = new mongoose.Schema(
   {
     name: String,
-    type: {
+    type: [
+      {
       type: String,
-      enum: ["Bar", "Restaurant", "Rooftop", "Park", "Cultural Place", "Museum", "Viewpoint", "Monument"],
-    },
+      enum: ["Bar", "Restaurant", "Rooftop", "Park", "Art Center", "Museum", "Viewpoint", "Monument"],
+      }
+    ],
     location: String,
     budget: {
       type: String,

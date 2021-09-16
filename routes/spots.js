@@ -20,11 +20,13 @@ router.get("/spots", async (req, res) => {
   res.render("spots/spots-list", { spots });
 });
 
+//_____________________________________________________________________________________________
+
 //http://localhost:3000/spots/bar
 router.get("/spots/bars", async (req, res) => {
   let bars = [];
-  bars = await Spot.find({ type: "Bars" });
-  res.render("spots/spots-bars", { bars });
+  bars = await Spot.find({ type: "Bar" });
+  res.render("spots/bars", { bars });
 });
 
 //http://localhost:3000/spots/restaurants
@@ -32,15 +34,52 @@ router.get("/spots/restaurants", async (req, res) => {
   let restaurants = [];
   restaurants = await Spot.find({ type: "Restaurant" });
   console.log(restaurants);
-  res.render("spots/spots-restaurants", { restaurants });
+  res.render("spots/restaurants", { restaurants });
 });
 
 //http://localhost:3000/spots/rooftops
 router.get("/spots/rooftops", async (req, res) => {
   let rooftops = [];
   rooftops = await Spot.find({ type: "Rooftop" });
-  res.render("spots/spots-restaurants", { restaurants });
+  res.render("spots/rooftops", { rooftops });
 });
+
+//http://localhost:3000/spots/parks
+router.get("/spots/parks", async (req, res) => {
+  let parks = [];
+  parks = await Spot.find({ type: "Park" });
+  res.render("spots/parks", { parks });
+});
+
+//http://localhost:3000/spots/art-centers
+router.get("/spots/art-centers", async (req, res) => {
+  let artcenters = [];
+  artcenters = await Spot.find({ type: "Art Center" });
+  res.render("spots/art-centers", { artcenters });
+});
+
+//http://localhost:3000/spots/museums
+router.get("/spots/museums", async (req, res) => {
+  let museums = [];
+  museums = await Spot.find({ type: "Museum" });
+  res.render("spots/museums", { museums });
+});
+
+//http://localhost:3000/spots/viewpoints
+router.get("/spots/viewpoints", async (req, res) => {
+  let viewpoints = [];
+  viewpoints = await Spot.find({ type: "Viewpoint" });
+  res.render("spots/viewpoints", { viewpoints });
+});
+
+//http://localhost:3000/spots/monumentums
+router.get("/spots/monumentums", async (req, res) => {
+  let monumentums = [];
+  monumentums = await Spot.find({ type: "Monument" });
+  res.render("spots/monumentums", { monumentums });
+});
+
+//_____________________________________________________________________________________________
 
 //http://localhost:3000/favorite-spots
 router.get("/favorite-spots", requireLogin, async (req, res) => {
