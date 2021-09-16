@@ -60,12 +60,12 @@ router.post("/favorite-spots/:spotId", async (req, res) => {
 });
 
 router.post("/favorite-spots/:spotId/delete", async (req, res) => {
-  console.log("spotid", req.params.spotId);
-  await User.findByIdAndUpdate(req.session.currentUser._id, {
-    $pull: {
-      favorites: { id: req.params.spotId },
-    },
-  });
+  const favorite = await Spot.findById(req.params.spotId);
+
+   await User.findByIdAndUpdate(req.session.currentUser._id, {
+     $pull: { favorites: favorite._id }
+   });
+
   res.redirect("/favorite-spots");
 });
 
@@ -130,7 +130,5 @@ router.post("/spots/:spotId/delete", async (req, res) => {
   await Spot.findByIdAndDelete(req.params.spotId);
   res.redirect("/spots");
 });
-
-
 
 module.exports = router;
