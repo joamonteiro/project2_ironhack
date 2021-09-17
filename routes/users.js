@@ -3,10 +3,10 @@ const Spot = require("../models/Spot.model");
 const User = require("../models/User.model");
 const fileUpload = require("../config/cloudinary.config");
 
-router.get("/users-list", async (req,res) => {
-    const users = await User.find();
-    res.render("users/users-list", {users});
-});
+// router.get("/users-list", async (req,res) => {
+//     const users = await User.find();
+//     res.render("users/users-list", {users});
+// });
 
 //http://localhost:3000/user/1234567123
 router.get("/user/:userId/", async (req,res) => {

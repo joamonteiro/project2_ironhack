@@ -34,7 +34,6 @@
                            Spots
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                           <li><a class="dropdown-item" href="/create-spot">Create A Spot</a></li>
                            <li><a class="dropdown-item" href="/spots">All Spots</a></li>
                            <li><a class="dropdown-item" href="/spots/bars">Bars</a></li>
                            <li><a class="dropdown-item" href="/spots/restaurants">Restaurants</a></li>
@@ -44,6 +43,7 @@
                            <li><a class="dropdown-item" href="/spots/museums">Museums</a></li>
                            <li><a class="dropdown-item" href="/spots/viewpoints">Viewpoints</a></li>
                            <li><a class="dropdown-item" href="/spots/monuments">Monuments</a></li>
+                           <li><a class="dropdown-item create-spot" href="/create-spot">Create A Spot</a></li>
                         </ul>
                      </li>
                      {{else}}
@@ -64,7 +64,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                            <li><a class="dropdown-item" href="/user/{{loggedInUser._id}}">My Profile</a></li>
                            <li><a class="dropdown-item" href="/favorite-spots">My Favorites</a></li>
-                           <li><a class="dropdown-item" href="/users-list">Users List</a></li>
+                           {{!-- <li><a class="dropdown-item" href="/users-list">Users List</a></li> --}}
                            <li>
                            </li>
                            {{!-- <a class="dropdown-item" href="#">Logout</a> --}}
