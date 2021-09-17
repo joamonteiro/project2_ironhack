@@ -11,7 +11,10 @@
                 <p>Bio: {{description}}</p>
             </div>
              {{#is user._id ourUser._id}}
+                <span>
                     <a class="new-spot-button" href="/user/{{user.id}}/edit">Edit Profile</a>
+                    <a class="new-spot-button" href="/user/{{user.id}}/image">Edit Picture</a>
+                </span>
              {{/is}}
         </div>
     </div>

@@ -41,4 +41,25 @@ router.post("/user/:userId/edit", fileUpload.single("image"), async (req,res) =>
     res.redirect(`/user/${req.params.userId}`);
 });
 
+router.get("/user/:userId/image", async (req,res) => {
+    const user = await User.findById(req.params.userId);
+    // req.session.currentUser._id
+    res.render("users/user-image", user);
+})
+router.post("/user/:userId/image", fileUpload.single("image"), async (req,res) => {
+    let fileUrlOnCloudinary = "";
+    if(req.file) {
+        fileUrlOnCloudinary = req.file.path; //the path on cloudinary
+    } 
+    const {username, nationality, description, funFact} = req.body;
+    await User.findByIdAndUpdate(req.params.userId, {
+        username,
+        nationality,
+        description,
+        funFact,
+        imageUrl: fileUrlOnCloudinary,
+    });
+    res.redirect(`/user/${req.params.userId}`);
+});
+
 module.exports = router;

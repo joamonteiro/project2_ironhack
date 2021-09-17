@@ -1,0 +1,16 @@
+<div class="container user-img-e">
+    <div class="row">
+        <div class="col-md-12 flex">
+            <div class="new-spot user-e">
+            <form action="/user/{{_id}}/image" method="POST" enctype="multipart/form-data">
+                <label>Choose another profile pic</label>
+                <br>
+                <img class="user-e-img" src="{{imageUrl}}"/>
+                <input class="img" type="file" name="image"/>
+            </div>
+            <button class="new-spot-button" type="submit">Update</button>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>

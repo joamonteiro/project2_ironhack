@@ -149,6 +149,7 @@ router.get("/spots/:spotId", async (req, res) => {
   });
 });
 
+
 //http://localhost:3000/spots/:spotId/edit
 router.get("/spots/:spotId/edit", async (req, res) => {
   const spot = await Spot.findById(req.params.spotId);

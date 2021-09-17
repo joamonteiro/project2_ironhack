@@ -63,6 +63,9 @@ footer div p{
 .items-nav {
   text-transform: lowercase;
   padding-left: 20px;
+  display: flex;
+  align-content: center !important;
+  align-items: center !important;
 }
 
 .cont-nav {
@@ -168,6 +171,20 @@ footer div p{
   font-size: 1.2rem;
   margin-bottom: 0;
   color: #687478;
+}
+
+.api{
+  display: flex;
+  margin-top: 2vh;
+}
+
+.api p{
+  margin: 0 3vw 0 0;
+  color: #687478;
+}
+
+.api span{
+ color: #FFBE85;
 }
 
 /*________________________________________________________________________ */
@@ -552,3 +569,7 @@ footer div p{
 }
 
 /*_________________________________________________________________________*/
+
+.user-img-e {
+  min-height: 85vh;
+}
